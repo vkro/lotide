@@ -36,7 +36,7 @@ Pushes the value to the array
 
 const pushToArray = function(arr, val) {
   arr.push(val);
-}
+};
 
 /*
 Receives a string
@@ -46,13 +46,14 @@ in the string, not counting spaces
 */
 
 const letterPosition = function(sentence) {
-  let results = {'t': [1, 2, 3]};
-  //for each char in sentence
-  for (let char of sentence) {
-    //skip spaces
+  let results = {};
+  for (let i = 0; i < sentence.length; i++) {
+    let char = sentence[i];
     if (char !== " ") {
       if (results[char]) {
-        console.log(sentence.indexOf(char));
+        pushToArray(results[char], i);
+      } else {
+        results[char] = [i];
       }
     }
   }
@@ -62,7 +63,7 @@ const letterPosition = function(sentence) {
 letterPosition("test");
 
 const testLetters = "hello";
-const result1 = letterPosition(testLetters)
+const result1 = letterPosition(testLetters);
 console.log(result1);
 
 // TEST CODE
