@@ -20,14 +20,13 @@ indicating the number of occurences for that character
 
 const countLetters = function(allLetters) {
   //this will be the returned object
-  results = {};
+  let results = {};
   //iterate over the string
   for (let char of allLetters) {
-    if (char != " ") {
+    if (char !== " ") {
       if (results[char]) {
         results[char] += 1;
-      }
-      else {
+      } else {
         results[char] = 1;
       }
     }
@@ -41,7 +40,7 @@ const testLetters = "js for of loop";
 console.log("**** The result of calling countLetters on \"js for loop\" *****");
 const result1 = countLetters(testLetters);
 console.log(result1);
-console.log("****** End of result, now for tests ******")
+console.log("****** End of result, now for tests ******");
 
 
 assertEqual(result1["j"], 1);
