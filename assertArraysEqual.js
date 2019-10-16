@@ -18,8 +18,8 @@ const eqArrays = function(arr1, arr2) {
 };
 
 /*
-assertArraysEqual accepts two arrays
-console.log a message about whether they are equal or not
+Receives two arrays
+Logs a message in the console about whether they are equal or not
 */
 const assertArraysEqual = function(array1, array2) {
   if (eqArrays(array1, array2)) {
