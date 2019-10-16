@@ -50,11 +50,10 @@ const letterPosition = function(sentence) {
   for (let i = 0; i < sentence.length; i++) {
     let char = sentence[i];
     if (char !== " ") {
-      if (results[char]) {
-        pushToArray(results[char], i);
-      } else {
-        results[char] = [i];
+      if (!results[char]) {
+        results[char] = [];
       }
+      pushToArray(results[char], i);
     }
   }
   return results;
