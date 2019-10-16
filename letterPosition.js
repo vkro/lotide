@@ -30,6 +30,15 @@ const assertArraysEqual = function(array1, array2) {
 };
 
 /*
+Receives an array and a value
+Pushes the value to the array
+*/
+
+const pushToArray = function(arr, val) {
+  arr.push(val);
+}
+
+/*
 Receives a string
 Return an object listing each unique character,
 with an array of all of its indices (zero-based positions)
@@ -37,19 +46,27 @@ in the string, not counting spaces
 */
 
 const letterPosition = function(sentence) {
-  let results = {};
-  //logic to update results
+  let results = {'t': [1, 2, 3]};
+  //for each char in sentence
+  for (let char of sentence) {
+    //skip spaces
+    if (char !== " ") {
+      if (results[char]) {
+        console.log(sentence.indexOf(char));
+      }
+    }
+  }
   return results;
 };
 
+letterPosition("test");
+
 const testLetters = "hello";
+const result1 = letterPosition(testLetters)
+console.log(result1);
 
 // TEST CODE
 assertArraysEqual(result1['h'], [0]);
 assertArraysEqual(result1['e'], [1]);
 assertArraysEqual(result1['l'], [2, 3]);
 assertArraysEqual(result1['o'], [4]);
-
-console.log("**** The result of calling countLetters on testLetters *****");
-const result1 = letterPosition(testLetters);
-console.log(result1);
