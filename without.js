@@ -50,12 +50,13 @@ that are not present in itemsToRemove.
 
 const without = function(source, itemsToRemove) {
   // create a new array that copies the source array, and will be modified to be the returned array
+  // AKA accumulator array
   let accArray = source;
   // for each of the values in itemsToRemove
   for (let i = 0; i < source.length; i++) {
     // check if the return array includes the itemToRemove
     if (checkSourceForItemToRemove(accArray, itemsToRemove[i])) {
-      //if it does, find the index of it in the return array
+      //if it does, get the index of it in the return array
       let removeIndex = (accArray.indexOf(itemsToRemove[i]));
       //and splice it out of there
       source.splice(removeIndex, 1);
