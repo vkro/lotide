@@ -17,15 +17,15 @@ Returns an object containing counts of values in the string array that
 match keys in the object - but only those keys that have a truthy value.
 */
 
-const countOnly = function(allItems, itemsToCount){
+const countOnly = function(allItems, itemsToCount) {
   let results = {};
-  let howMany = 0
-
   for (const item of allItems) {
-    if (results[item]) {
-      results[item] +=1;
-    } else {
-      results[item] = 1;
+    if (itemsToCount[item]) {
+      if (results[item]) {
+        results[item] += 1;
+      } else {
+        results[item] = 1;
+      }
     }
   }
   return results;
@@ -44,6 +44,8 @@ const firstNames = [
 ];
 
 const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true });
+
+console.log(result1);
 
 assertEqual(result1["Jason"], 1);
 assertEqual(result1["Karima"], undefined);
