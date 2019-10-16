@@ -47,7 +47,8 @@ in the string, not counting spaces
 
 const letterPosition = function(sentence) {
   let results = {};
-  for (let i = 0; i < sentence.length; i++) {
+  for (i in sentence) {
+    i = Number(i); //this loop otherwise returns i as a string in the final array
     let char = sentence[i];
     if (char !== " ") {
       if (!results[char]) {
@@ -58,8 +59,6 @@ const letterPosition = function(sentence) {
   }
   return results;
 };
-
-letterPosition("test");
 
 const testLetters = "hello";
 const result1 = letterPosition(testLetters);
