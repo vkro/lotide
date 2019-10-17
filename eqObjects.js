@@ -34,8 +34,9 @@ const eqObjects = function(object1, object2) {
       } else if (object1[key] !== object2[key]) { //otherwise, if key values aren't equal
         return false;                             //return false
       }
-    } return true; //if false hasn't already been returned, they're identical - return true
+    }  
   }
+  return true; //if the function gets this far, they're identical - return true
 };
 
 //TESTS
