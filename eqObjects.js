@@ -1,4 +1,23 @@
 /*
+Receives two arrays,
+Returns true or false, based on a perfect match.
+*/
+
+const eqArrays = function(arr1, arr2) {
+  if (arr1.length === arr2.length) {
+    let equalSoFar = true;
+    for (let i = 0; i < arr1.length; i++) {
+      if (equalSoFar === true) {
+        if (arr1[i] !== arr2[i]) {
+          equalSoFar = false;
+        }
+      }
+    }
+    return equalSoFar;
+  } else return false;
+};
+
+/*
 Receives two values,
 Prints a message indicating if they match or not.
 */
@@ -28,13 +47,17 @@ const eqObjects = function(object1, object2) {
   if (keys1.length !== keys2.length) {
     return false;
   } else {
-    for (let key in object2) {  //otherwise for each key in obj1
-      if (!object2[key]) { //if object2 doesn't contain the key return false
+    for (let key in object2) {                       //else, for each key in obj1
+      if (!object2[key]) {                           //if object2 doesn't contain the key return false
         return false;
-      } else if (object1[key] !== object2[key]) { //otherwise, if key values aren't equal
-        return false;                             //return false
+      } else if (Array.isArray(object2[key])) {     //else, if the key value is an array
+        if (!eqArrays(object2[key], object1[key])) { //check if the arrays match
+          return false;                             //if not, return false
+        }
+      } else if (object1[key] !== object2[key]) { //else, check if key values are equal
+        return false;                             //if not, return false
       }
-    }  
+    }
   }
   return true; //if the function gets this far, they're identical - return true
 };
@@ -53,3 +76,10 @@ assertEqual(eqObjects(ab, abc), false);
 assertEqual(eqObjects(abc, cba), false);
 assertEqual(eqObjects(emptyObj, abc), false);
 assertEqual(eqObjects(emptyObj, emptyObj2), true);
+
+const cd = {c: "1", d: ['2', 3]};
+const dc = { d: ["2", 3], c: "1" };
+const cd2 = { c: "1", d: ["2", 3, 4] };
+
+assertEqual(eqObjects(cd, dc), true);
+assertEqual(eqObjects(cd, cd2), false);
