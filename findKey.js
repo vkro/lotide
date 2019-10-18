@@ -24,8 +24,6 @@ const findKey = function(object, callback) {    // initially used for ... in -- 
   }
 };
 
-Object.keys
-
 // TESTS
 
 assertEqual(findKey({
