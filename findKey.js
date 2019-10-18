@@ -3,7 +3,7 @@ Receives two values,
 Prints a message indicating if they match or not.
 */
 
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
@@ -50,7 +50,6 @@ assertEqual(findKey({
 const ab = { a: "1", b: "2" };
 const cba = { a: 1, b: 2, c: "32" };
 const emptyObj = {};
-const emptyObj2 = {};
 
 assertEqual(findKey(ab, x => x % 2 === 0), "b");
 assertEqual(findKey(cba, x => x.length === 2), "c");
