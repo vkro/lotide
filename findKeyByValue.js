@@ -19,7 +19,7 @@ Otherwise, return undefined
 */
 
 const findKeyByValue = function(obj, value) {
-  for (let objectKey in obj) {
+  for (let objectKey of Object.keys(obj)) {
     if ((obj[objectKey]) === value) {
       return objectKey;
     }
