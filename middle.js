@@ -1,33 +1,5 @@
-/*
-Receives two arrays,
-Returns true or false, based on a perfect match.
-*/
-
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length === arr2.length) {
-    let equalSoFar = true;
-    for (let i = 0; i < arr1.length; i++) {
-      if (equalSoFar === true) {
-        if (arr1[i] !== arr2[i]) {
-          equalSoFar = false;
-        }
-      }
-    }
-    return equalSoFar;
-  } else return false;
-};
-
-/*
-assertArraysEqual accepts two arrays
-console.log a message about whether they are equal or not
-*/
-const assertArraysEqual = function(array1, array2) {
-  if (eqArrays(array1, array2)) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${array1} === ${array2}`);
-  } else {
-    console.log(`😡 😡 😡 Assertion Failed: ${array1} !== ${array2}`);
-  }
-};
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
 /*
 Accepts an array and returns its middle-most element(s)
@@ -52,14 +24,8 @@ const middle = function(arr) {
   return result;
 };
 
-assertArraysEqual(middle([]), []);
-assertArraysEqual(middle([1]), []);
-assertArraysEqual(middle([1, 2]), []);
-assertArraysEqual(middle([5, 7, 3]), [7]);
-assertArraysEqual(middle([1, 2, 4, 9, 5]), [4]);
-assertArraysEqual(middle([1, 9, 5, 4]), [9, 5]);
-assertArraysEqual(middle([4, 5, 6, 7, 8, 9]), [6, 7]);
-assertArraysEqual(middle(["a", "b", "c", "d", "x"]), ["c"]);
-assertArraysEqual(middle(["a", "b", "c", "d"]), ["b", "c"]);
+
+
+module.exports = middle;
 
 
