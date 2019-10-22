@@ -1,8 +1,6 @@
 const eqArrays = require('../eqArrays');
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const be = require('chai').be;
-
 
 
 describe("#eqArrays", () => {
