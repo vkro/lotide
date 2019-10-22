@@ -17,16 +17,3 @@ describe("#countLetters", () => {
  });
 
 });
-
-// TESTS  
-// 
-// const testLetters = "js for of loop";
-// 
-// const result1 = countLetters(testLetters);
-// 
-// assertEqual(result1["j"], 1);
-// assertEqual(result1["o"], 4);	//assertEqual(result1["s"], 1);
-// assertEqual(result1["l"], 1);	//assertEqual(result1["f"], 2);
-// assertEqual(result1["x"], undefined); 	//assertEqual(result1["o"], 4);
-// assertEqual(result1["l"], 1);
-// assertEqual(result1["x"], undefined);
