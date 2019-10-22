@@ -1,16 +1,4 @@
-/*
-Receives two values,
-Prints a message indicating if they match or not.
-*/
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`😡 😡 😡 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
+const assertEqual = require('./assertEqual');
 
 // Takes an object and callback function
 // Returns first key for which callback returns truthy value.
@@ -24,6 +12,7 @@ const findKey = function(object, callback) {    // initially used for ... in -- 
   }
 };
 
+
 // TESTS
 
 assertEqual(findKey({
@@ -35,7 +24,6 @@ assertEqual(findKey({
   "Akelarre": { stars: 3 }
 }, x => x.stars === 2), "noma");
 
-
 assertEqual(findKey({
   "Blue Hill": { stars: 1 },
   "Akaleri": { stars: 3 },
@@ -45,8 +33,6 @@ assertEqual(findKey({
   "Akelarre": { stars: 3 }
 }, x => x.stars === 7), undefined);
 
-
-
 const ab = { a: "1", b: "2" };
 const cba = { a: 1, b: 2, c: "32" };
 const emptyObj = {};
@@ -54,3 +40,6 @@ const emptyObj = {};
 assertEqual(findKey(ab, x => x % 2 === 0), "b");
 assertEqual(findKey(cba, x => x.length === 2), "c");
 assertEqual(findKey(emptyObj, x => x === "anything"), undefined);
+
+
+module.exports = findKey;

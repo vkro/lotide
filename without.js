@@ -1,34 +1,4 @@
-/*
-Receives two arrays,
-Returns true or false, based on a perfect match.
-*/
-
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length === arr2.length) {
-    let equalSoFar = true;
-    for (let i = 0; i < arr1.length; i++) {
-      if (equalSoFar === true) {
-        if (arr1[i] !== arr2[i]) {
-          equalSoFar = false;
-        }
-      }
-    }
-    return equalSoFar;
-  } else return false;
-};
-
-/*
-Receives two arrays
-Returns console.log indicating whether they are equal or not
-*/
-const assertArraysEqual = function(array1, array2) {
-  if (eqArrays(array1, array2)) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${array1} === ${array2}`);
-  } else {
-    console.log(`😡 😡 😡 Assertion Failed: ${array1} !== ${array2}`);
-  }
-};
-
+const assertArraysEqual = require('./assertArraysEqual');
 
 /*
 Receives an array and a value
@@ -41,7 +11,7 @@ const checkSourceForItemToRemove = function(array, val){
 }
 
 /*
-Receives two arrays:
+Accepts two arrays:
 - source
 - itemsToRemove
 Returns a new array with only the elements from source 
@@ -49,21 +19,17 @@ that are not present in itemsToRemove.
 */
 
 const without = function(source, itemsToRemove) {
-  // create a new array that copies the source array, and will be modified to be the returned array
-  // AKA accumulator array
-  let accArray = source;
-  // for each of the values in itemsToRemove
-  for (let i = 0; i < source.length; i++) {
-    // check if the return array includes the itemToRemove
-    if (checkSourceForItemToRemove(accArray, itemsToRemove[i])) {
-      //if it does, get the index of it in the return array
-      let removeIndex = (accArray.indexOf(itemsToRemove[i]));
-      //and splice it out of there
-      source.splice(removeIndex, 1);
+  let accArray = source;                                             // accumulator array for return value
+  for (let i = 0; i < source.length; i++) {                          // for each of the values in itemsToRemove
+    if (checkSourceForItemToRemove(accArray, itemsToRemove[i])) {    // check if the return array includes the itemToRemove
+      let removeIndex = (accArray.indexOf(itemsToRemove[i]));        // if it does, get the index of it in the return array
+      source.splice(removeIndex, 1);                                 // and splice it out of there
     }
   }
   return accArray;
 };
+
+// TESTS
 
 assertArraysEqual(without([], []), []);
 assertArraysEqual(without([1, 2, "a"], []), [1, 2, "a"]);
@@ -74,3 +40,7 @@ assertArraysEqual(without([1, 2, "a", "p", 10], ["p", 10]), [1, 2, "a"]);
 const words = ["hello", "world", "lighthouse"];
 without(["hello", "world", "lighthouse"], ["lighthouse"]);
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+
+
+module.exports = without;
+module.exports = checkSourceForItemToRemove;

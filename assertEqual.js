@@ -1,5 +1,5 @@
 /*
-Receives two values,
+Accepts two values,
 Prints a message indicating if they match or not.
 */
 

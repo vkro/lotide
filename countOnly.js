@@ -1,15 +1,4 @@
-/*
-Receives two values,
-Prints a message indicating if they match or not.
-*/
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`😡 😡 😡 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual');
 
 /*
 Receives an array strings to count, and an object specifying what to count.
@@ -31,6 +20,8 @@ const countOnly = function(allItems, itemsToCount) {
   return results;
 };
 
+
+
 const firstNames = [
   "Karl",
   "Salima",
@@ -47,6 +38,6 @@ const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": t
 
 console.log(result1);
 
-//assertEqual(result1["Jason"], 1);
-//assertEqual(result1["Karima"], undefined);
-//assertEqual(result1["Fang"], 2);
+assertEqual(result1["Jason"], 1);
+assertEqual(result1["Karima"], undefined);
+assertEqual(result1["Fang"], 2);

@@ -1,34 +1,5 @@
-/*
-Receives two arrays,
-Returns true or false, based on a perfect match.
-*/
-
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length === arr2.length) {
-    let equalSoFar = true;
-    for (let i = 0; i < arr1.length; i++) {
-      if (equalSoFar === true) {
-        if (arr1[i] !== arr2[i]) {
-          equalSoFar = false;
-        }
-      }
-    }
-    return equalSoFar;
-  } else return false;
-};
-
-/*
-Receives two values,
-Prints a message indicating if they match or not.
-*/
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ ✅ ✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`😡 😡 😡 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
 
 /*
 Accepts two objects
@@ -61,6 +32,9 @@ const eqObjects = function(object1, object2) {
   }
   return true; //if the function gets this far, they're identical - return true
 };
+
+module.exports = eqObjects;
+
 
 //TESTS
 
