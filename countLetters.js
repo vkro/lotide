@@ -23,7 +23,7 @@ const countLetters = function(allLetters) {
   return results;
 };
 
-
+// TESTS
 
 const testLetters = "js for of loop";
 
