@@ -1,5 +1,3 @@
-const assertArraysEqual = require('./assertArraysEqual');
-
 /*
 Receives an array and a value
 Returns true if value is in array
@@ -29,18 +27,4 @@ const without = function(source, itemsToRemove) {
   return accArray;
 };
 
-// TESTS
-
-assertArraysEqual(without([], []), []);
-assertArraysEqual(without([1, 2, "a"], []), [1, 2, "a"]);
-assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
-assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
-assertArraysEqual(without([1, 2, "a", "p", 10], ["p", 10]), [1, 2, "a"]);
-
-const words = ["hello", "world", "lighthouse"];
-without(["hello", "world", "lighthouse"], ["lighthouse"]);
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
-
-
 module.exports = without;
-module.exports = checkSourceForItemToRemove;
