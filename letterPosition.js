@@ -1,5 +1,6 @@
 const assertArraysEqual = require('./assertArraysEqual');
 
+
 /*
 Accepts an array and a value
 Pushes the value to the array
@@ -31,16 +32,4 @@ const letterPosition = function(sentence) {
   return results;
 };
 
-// TESTS
-
-const testLetters = "hello";
-const result1 = letterPosition(testLetters);
-console.log(result1);
-
-assertArraysEqual(result1['h'], [0]);
-assertArraysEqual(result1['e'], [1]);
-assertArraysEqual(result1['l'], [2, 3]);
-assertArraysEqual(result1['o'], [4]);
-
 module.exports = letterPosition;
-module.exports = pushToArray;
