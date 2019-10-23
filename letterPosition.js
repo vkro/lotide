@@ -1,6 +1,3 @@
-const assertArraysEqual = require('./assertArraysEqual');
-
-
 /*
 Accepts an array and a value
 Pushes the value to the array

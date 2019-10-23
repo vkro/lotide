@@ -46,3 +46,11 @@ The following functions are currently implemented:
 *  `assertEqual(actual, expected`: Accepts two values; prints a message indicating if they match or not.
 *  `assertArraysEqual(actual, expected)`: Accepts two arrays; logs a message in the console about whether they are equal or not.
 *  `assertObjectsEqual(actual, expected)`: Accepts two objects; console.logs a message about whether they're equal or not.
+
+### Versions
+
+**1.0.2** Remnants of old tests removed, C-style for loops replaced with for...of/in.
+
+**1.0.1** All tests (except those for assert functions) refactored to use Mocha & Chai. 
+
+**1.0.0** A mini clone of the Lodash library with some manual tests.

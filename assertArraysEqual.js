@@ -1,6 +1,5 @@
 const eqArrays = require('./eqArrays');
 
-
 /*
 Accepts two arrays
 Logs a message in the console about whether they are equal or not
